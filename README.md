@@ -35,6 +35,7 @@ app/
   globals.css       Global theme, effects, and responsive typography
   layout.tsx        Root metadata, fonts, and document layout
   page.tsx          Homepage section assembly
+  projects/[slug]/  Dynamic project case-study pages
 components/
   About.tsx
   Contact.tsx
@@ -48,7 +49,8 @@ data/
 lib/
   utils.ts          Shared class-name utility
 public/
-  projects/         Portfolio artwork and thumbnails
+  brand/            Personal logo and brand assets
+  projects/         Project covers, galleries, and artwork
 ```
 
 ## Quality checks

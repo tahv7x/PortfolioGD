@@ -10,9 +10,9 @@ export default function Home() {
     <main className="ambient-page relative min-h-screen overflow-clip bg-ink-950 text-paper">
       <Navbar />
       <Hero />
-      <About />
       <Projects />
       <Skills />
+      <About />
       <Contact />
     </main>
   );

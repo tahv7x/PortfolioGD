@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -29,25 +30,51 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", update);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [open]);
+
   return (
     <motion.header
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "pt-3" : "pt-5"}`}
+      className="fixed inset-x-0 top-0 z-50 pt-5"
     >
-      <nav
-        className={`glass-panel container-shell flex items-center justify-between rounded-full px-2.5 py-2 transition-all duration-500 md:px-3 ${
-          scrolled ? "nav-glass--scrolled max-w-5xl" : "max-w-6xl"
+      <motion.nav
+        className={`glass-panel container-shell relative z-20 flex max-w-6xl items-center justify-between rounded-full px-2.5 py-2 md:px-3 ${
+          scrolled ? "nav-glass--scrolled" : ""
         }`}
         aria-label="Main navigation"
       >
-        <a href="#top" className="group inline-flex items-center gap-3" onClick={() => setOpen(false)}>
-          <span className="grid size-9 place-items-center rounded-full bg-white text-[10px] font-black text-ink-950 shadow-lg shadow-black/20 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-105">
-            {siteConfig.initials}
-          </span>
-          <span className="hidden text-xs font-bold uppercase tracking-[0.22em] sm:block">
-            {siteConfig.name}®
+        <a
+          href="#top"
+          className="group inline-flex items-center"
+          onClick={() => setOpen(false)}
+          aria-label={`${siteConfig.name} home`}
+        >
+          <span className="relative grid h-10 w-[4.5rem] place-items-center overflow-hidden rounded-full border border-white/20 bg-paper px-3 shadow-lg shadow-black/25 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:scale-[1.03] group-hover:shadow-electric/20">
+            <Image
+              src={siteConfig.logo}
+              alt={`${siteConfig.name} logo`}
+              width={493}
+              height={266}
+              priority
+              className="h-7 w-auto object-contain"
+            />
           </span>
         </a>
 
@@ -77,35 +104,52 @@ export function Navbar() {
         >
           {open ? <X size={18} /> : <Menu size={18} />}
         </button>
-      </nav>
+      </motion.nav>
 
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="glass-panel container-shell mt-2 overflow-hidden rounded-[2rem] md:hidden"
-          >
-            <div className="container-shell flex flex-col py-6">
-              {navigation.map((link, index) => (
-                <motion.a
-                  key={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.06 }}
-                  href={link.href}
-                  onClick={(event) => {
-                    event.preventDefault();
-                    scrollToSection(link.href);
-                  }}
-                  className="border-b border-white/10 px-2 py-4 text-3xl font-semibold tracking-tight transition-colors last:border-0 hover:text-electric"
-                >
-                  {link.label}
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
+          <>
+            <motion.button
+              type="button"
+              aria-label="Close navigation menu"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 z-0 cursor-default bg-[#02030a]/60 backdrop-blur-[7px] md:hidden"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, y: -14, scale: 0.985 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.985 }}
+              transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+              className="mobile-menu-panel container-shell relative z-10 mt-2 overflow-hidden rounded-[2rem] p-2 md:hidden"
+            >
+              <div className="flex flex-col">
+                {navigation.map((link, index) => (
+                  <motion.a
+                    key={link.href}
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 + index * 0.055, duration: 0.35 }}
+                    href={link.href}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      scrollToSection(link.href);
+                    }}
+                    className="group flex min-h-16 items-center justify-between rounded-[1.45rem] border-b border-white/[0.08] px-5 text-2xl font-semibold tracking-tight text-paper transition-all last:border-0 hover:bg-white/[0.07] hover:px-6 hover:text-white active:scale-[0.985]"
+                  >
+                    <span>{link.label}</span>
+                    <span className="font-mono text-[10px] tracking-[0.16em] text-zinc-500 transition-colors group-hover:text-electric">
+                      0{index + 1}
+                    </span>
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.header>

@@ -1,0 +1,16 @@
+<svg width="1600" height="2000" viewBox="0 0 1600 2000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="2000" fill="#05060F"/>
+  <circle cx="1310" cy="320" r="720" fill="url(#glow)"/>
+  <circle cx="180" cy="1780" r="620" stroke="#3D5AFE" stroke-opacity="0.32" stroke-width="2"/>
+  <path d="M-180 1450C260 1080 670 1010 1070 1140C1290 1212 1510 1380 1780 1690" stroke="#F5F0E6" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="110" y="1040" fill="#F5F0E6" font-family="Arial, Helvetica, sans-serif" font-size="500" font-weight="900" letter-spacing="-42">CSK</text>
+  <text x="125" y="1140" fill="#8FA6FF" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" letter-spacing="14">CLUB SPORTIF ALKENDI</text>
+  <text x="125" y="1810" fill="#F5F0E6" fill-opacity="0.48" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="10">BRANDING · VISUAL CONTENT · 2025—2026</text>
+  <rect x="54" y="54" width="1492" height="1892" rx="58" stroke="#F5F0E6" stroke-opacity="0.12" stroke-width="2"/>
+  <defs>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1310 320) rotate(90) scale(720)">
+      <stop stop-color="#3D5AFE" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#1A2A8F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

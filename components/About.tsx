@@ -8,7 +8,7 @@ import { SectionHeading } from "./SectionHeading";
 export function About() {
   return (
     <section id="about" className="container-shell relative z-10 scroll-mt-28 py-10 md:py-14">
-      <SectionHeading eyebrow="About the studio" title="Strategy first. Aesthetics always." index="01" />
+      <SectionHeading eyebrow="About the studio" title="Strategy first. Aesthetics always." index="03" />
 
       <div className="grid gap-10 md:grid-cols-2 md:gap-16">
         <motion.div
