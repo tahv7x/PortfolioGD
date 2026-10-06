@@ -50,6 +50,7 @@ type CaseStudy = {
 export function ProjectCaseStudy({ project }: { project: CaseStudy }) {
   const [scrolled, setScrolled] = useState(false);
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
+  const totalVisuals = project.collections.reduce((total, collection) => total + collection.items.length, 0);
 
   useEffect(() => {
     const updateHeader = () => setScrolled(window.scrollY > 24);
@@ -256,7 +257,7 @@ export function ProjectCaseStudy({ project }: { project: CaseStudy }) {
           </div>
         </section>
 
-        <section className="border-t border-white/15 py-12 md:py-20">
+        <section className="border-t border-white/15 pb-0 pt-12 md:pt-20">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -278,7 +279,7 @@ export function ProjectCaseStudy({ project }: { project: CaseStudy }) {
               <section
                 key={collection.id}
                 id={collection.id}
-                className="border-t border-white/15 py-12 first:border-t-0 first:pt-0 md:py-16"
+                className="border-t border-white/15 py-12 first:border-t-0 first:pt-0 last:pb-8 md:py-16 md:last:pb-10"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 24 }}
@@ -350,15 +351,59 @@ export function ProjectCaseStudy({ project }: { project: CaseStudy }) {
           </div>
         </section>
 
-        <section className="flex flex-col gap-7 rounded-[2rem] border border-white/10 bg-white/[0.035] px-6 py-8 md:flex-row md:items-center md:justify-between md:rounded-[3rem] md:px-10 md:py-10">
-          <div>
-            <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-zinc-600">More work coming soon</p>
-            <p className="mt-2 text-3xl font-semibold tracking-tight md:text-5xl">Back to selected projects.</p>
-          </div>
-          <Link href="/#work" className="glass-button group inline-flex w-fit items-center gap-3 rounded-full px-5 py-3 text-[10px] font-bold uppercase tracking-[0.15em]">
-            View work
-            <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-          </Link>
+        <section className="border-t border-white/15 pb-12 pt-8 md:pb-20 md:pt-10">
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+            className="relative overflow-hidden rounded-[2rem] border border-white/12 bg-white/[0.035] px-6 py-9 shadow-[0_32px_100px_rgba(0,0,0,0.28)] md:rounded-[3rem] md:px-10 md:py-12 lg:px-14 lg:py-14"
+          >
+            <div className="pointer-events-none absolute -right-24 -top-32 size-96 rounded-full bg-electric/15 blur-[100px]" />
+
+            <div className="relative z-10">
+              <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-electric">Project impact</p>
+              <h2 className="mt-4 max-w-5xl text-balance text-[clamp(2.7rem,7vw,7rem)] font-semibold uppercase leading-[0.88] tracking-[-0.055em]">
+                One identity. Every match. Every moment.
+              </h2>
+              <p className="mt-7 max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
+                A flexible identity built to support CSK from tournament announcements to final results and player recognition.
+              </p>
+
+              <div className="mt-10 grid border-y border-white/12 sm:grid-cols-3">
+                {[
+                  [`${totalVisuals}+`, "Visuals created"],
+                  [String(project.collections.length).padStart(2, "0"), "Content systems"],
+                  [project.year, "Season"],
+                ].map(([value, label], index) => (
+                  <div
+                    key={label}
+                    className={`py-6 sm:px-6 sm:py-8 ${index > 0 ? "border-t border-white/12 sm:border-l sm:border-t-0" : ""} ${index === 0 ? "sm:pl-0" : ""}`}
+                  >
+                    <p className="text-4xl font-semibold tracking-tight text-paper md:text-5xl">{value}</p>
+                    <p className="mt-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-zinc-500">{label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <Link
+                  href="/#work"
+                  className="group inline-flex w-fit items-center gap-2 rounded-full px-1 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-400 transition-colors hover:text-paper"
+                >
+                  <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-1" />
+                  Back to work
+                </Link>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="glass-button group inline-flex w-fit items-center gap-3 rounded-full px-5 py-3 text-[10px] font-bold uppercase tracking-[0.15em]"
+                >
+                  Start a project
+                  <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                </a>
+              </div>
+            </div>
+          </motion.div>
         </section>
       </div>
 

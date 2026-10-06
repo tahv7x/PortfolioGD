@@ -43,16 +43,16 @@ export const projects = [
   },
   {
     number: "02",
-    title: "Mono Studio",
-    category: "Brand Identity · Editorial",
-    filter: "Branding",
-    services: ["Identity", "Editorial"],
-    summary: "A disciplined identity system balancing Swiss structure with a bold cultural edge.",
-    year: "2025",
-    image: "/projects/mono.svg",
-    logo: null,
+    title: "Bookify",
+    category: "Product Design · UI/UX",
+    filter: "UI/UX",
+    services: ["UX Strategy", "Interface Design", "React Frontend"],
+    summary: "A complete service-booking experience connecting clients, providers, and administrators through one clear product system.",
+    year: "2025–2026",
+    image: "/projects/Bookify/Logo wout bg.png",
+    logo: "/projects/Bookify/Logo wout bg.png",
     aspect: "aspect-[4/5]",
-    slug: null,
+    slug: "bookify",
   },
   {
     number: "03",
@@ -197,9 +197,113 @@ export const projectCaseStudies = [
           { title: "Matchday — EHTP", src: "/projects/csk/SocialMediaPosters/matchday-ehtp.jpg", width: 1080, height: 1350 },
         ],
       },
+      {
+        id: "player-awards",
+        eyebrow: "Season honours",
+        title: "Player awards",
+        description:
+          "A closing awards series celebrating the standout individual performances from the tournament.",
+        format: "1080 × 1350",
+        items: [
+          { title: "Best Player", src: "/projects/csk/playerssssawards/bestplayeer.jpg", width: 1080, height: 1350 },
+          { title: "Top Goalscorer", src: "/projects/csk/playerssssawards/goalscorer.jpg", width: 1080, height: 1350 },
+          { title: "Goalkeeper of the Tournament", src: "/projects/csk/playerssssawards/goalkepeer-of-the-tournament.jpg", width: 1080, height: 1350 },
+        ],
+      },
     ],
   },
 ] as const;
+
+export const bookifyCaseStudy = {
+  slug: "bookify",
+  number: "02",
+  shortName: "Bookify",
+  logo: "/projects/Bookify/Logo wout bg.png",
+  title: "Bookify",
+  year: "2025–2026",
+  client: "Independent final project",
+  role: "UI/UX Designer & Frontend Developer",
+  category: "Product Design & UI/UX",
+  introduction:
+    "A service-booking marketplace designed to make finding, comparing, and booking trusted professionals feel simple and reassuring.",
+  contribution:
+    "As the sole designer and frontend developer, I shaped the product structure, user flows, interface system, responsive experience, and React implementation across the client, service-provider, and admin products.",
+  repository: "https://github.com/tahv7x/Bookify",
+  audiences: [
+    {
+      id: "client",
+      number: "01",
+      title: "Client",
+      description: "Discover providers, compare services, book appointments, and manage every interaction from one personal space.",
+      features: ["Explore & filters", "Booking flow", "Appointments", "Messages & favourites"],
+    },
+    {
+      id: "provider",
+      number: "02",
+      title: "Service provider",
+      description: "Run a service business through a focused workspace for bookings, availability, services, clients, and performance.",
+      features: ["Performance dashboard", "Availability", "Service management", "Client requests"],
+    },
+    {
+      id: "admin",
+      number: "03",
+      title: "Administrator",
+      description: "Oversee the marketplace with clear operational views for platform activity, users, categories, and support.",
+      features: ["Platform overview", "User management", "Categories", "Support operations"],
+    },
+  ],
+  screenshotGroups: [
+    {
+      id: "discovery",
+      eyebrow: "Discovery & booking",
+      title: "From search to a confirmed appointment.",
+      description:
+        "The core journey reduces the distance between intent and action: discover the right professional, understand the offer, choose a time, and confirm with confidence.",
+      screens: [
+        { title: "Landing experience", file: "01-landing.png", ratio: "wide" },
+        { title: "Explore & map", file: "02-explore-map.png", ratio: "wide" },
+        { title: "Provider profile", file: "03-provider-profile.png", ratio: "standard" },
+        { title: "Booking flow", file: "04-booking-flow.png", ratio: "standard" },
+      ],
+    },
+    {
+      id: "client-experience",
+      eyebrow: "Client experience",
+      title: "A calm space for every booking.",
+      description:
+        "The client product brings upcoming appointments, recent activity, saved providers, reviews, and conversations into one understandable system.",
+      screens: [
+        { title: "Client home", file: "05-client-home.png", ratio: "wide" },
+        { title: "Appointments", file: "06-client-appointments.png", ratio: "standard" },
+        { title: "Messages", file: "07-client-messages.png", ratio: "standard" },
+      ],
+    },
+    {
+      id: "provider-experience",
+      eyebrow: "Provider experience",
+      title: "Business tools without the visual noise.",
+      description:
+        "The provider workspace turns schedules, requests, services, clients, and performance data into practical daily actions.",
+      screens: [
+        { title: "Provider dashboard", file: "08-provider-dashboard.png", ratio: "wide" },
+        { title: "Availability", file: "09-provider-availability.png", ratio: "standard" },
+        { title: "Services & requests", file: "10-provider-services.png", ratio: "standard" },
+      ],
+    },
+    {
+      id: "admin-experience",
+      eyebrow: "Admin experience",
+      title: "A clear view of the entire platform.",
+      description:
+        "The admin interface prioritises oversight: key platform signals first, then the tools needed to manage users, categories, and support.",
+      screens: [
+        { title: "Admin overview", file: "11-admin-overview.png", ratio: "wide" },
+        { title: "User management", file: "12-admin-users.png", ratio: "standard" },
+        { title: "Categories & support", file: "13-admin-operations.png", ratio: "standard" },
+      ],
+    },
+  ],
+} as const;
 
 export function getProjectBySlug(slug: string) {
   return projectCaseStudies.find((project) => project.slug === slug);
