@@ -72,7 +72,7 @@ export function Navbar() {
               alt={`${siteConfig.name} logo`}
               width={493}
               height={266}
-              priority
+              loading="eager"
               className="h-7 w-auto object-contain"
             />
           </span>

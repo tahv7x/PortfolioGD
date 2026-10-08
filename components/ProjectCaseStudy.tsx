@@ -451,7 +451,7 @@ export function ProjectCaseStudy({ project }: { project: CaseStudy }) {
                   quality={90}
                   sizes="94vw"
                   className="mx-auto max-h-[84svh] h-auto w-auto max-w-full object-contain"
-                  priority
+                  loading="eager"
                 />
               </div>
               <figcaption className="flex items-center justify-between gap-5 border-t border-white/10 px-5 py-4 sm:px-6">

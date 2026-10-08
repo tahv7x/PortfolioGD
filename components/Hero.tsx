@@ -116,7 +116,7 @@ export function Hero() {
                   src={siteConfig.portrait}
                   alt={`Portrait of ${siteConfig.name}`}
                   fill
-                  priority
+                  loading="eager"
                   unoptimized
                   sizes="(max-width: 1023px) 100vw, 30vw"
                   className="origin-bottom translate-y-2 scale-[0.99] object-contain object-bottom drop-shadow-[0_22px_35px_rgba(0,0,0,0.36)] transition-transform duration-700 group-hover:translate-y-1 group-hover:scale-[1.015]"

@@ -39,8 +39,11 @@ function Reveal({ children, className = "", delay = 0 }: { children: ReactNode; 
   );
 }
 
-function ScreenPlaceholder({ screen, index }: { screen: Screen; index: number }) {
+function ScreenMockup({ screen, index }: { screen: Screen; index: number }) {
   const isWide = screen.ratio === "wide";
+  const isScrollingPreview = "scroll" in screen && screen.scroll;
+  const scrollEnd = "scrollEnd" in screen ? screen.scrollEnd : "-79%";
+  const isDark = screen.theme === "dark";
 
   return (
     <motion.figure
@@ -51,57 +54,50 @@ function ScreenPlaceholder({ screen, index }: { screen: Screen; index: number })
       transition={{ duration: 0.65, delay: Math.min(index * 0.06, 0.16), ease }}
       className={cn("group min-w-0", isWide && "md:col-span-2")}
     >
-      <div
+      <a
+        href={screen.src}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`Open ${screen.title} screenshot`}
         className={cn(
-          "relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#080b16] shadow-[0_28px_80px_rgba(0,0,0,0.32)] transition-colors duration-500 group-hover:border-[#1a6fd1]/45",
-          isWide ? "aspect-[16/9]" : "aspect-[4/3]",
+          "relative block overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#080b16] p-2 shadow-[0_28px_80px_rgba(0,0,0,0.32)] transition-colors duration-500 group-hover:border-[#1a6fd1]/55 md:p-3",
+          isWide ? "aspect-[16/9]" : "aspect-[16/10]",
         )}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_18%,rgba(26,111,209,0.22),transparent_36%),linear-gradient(145deg,#111a32,#070914_72%)]" />
-        <div className="absolute inset-[5%] overflow-hidden rounded-[1rem] border border-white/[0.09] bg-[#eef2fc] shadow-2xl shadow-black/25">
-          <div className="flex h-[11%] items-center gap-2 border-b border-[#dce4f4] bg-white px-[3%]">
-            <span className="size-2 rounded-full bg-[#1a6fd1]" />
-            <span className="h-1.5 w-[12%] rounded-full bg-[#c8d4e8]" />
-            <span className="ml-auto h-1.5 w-[18%] rounded-full bg-[#dfe6f2]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_16%,rgba(26,111,209,0.2),transparent_38%),linear-gradient(145deg,#121b34,#050711_72%)]" />
+        <div className={cn("relative flex size-full flex-col overflow-hidden rounded-[1.15rem] border shadow-2xl shadow-black/35 md:rounded-[1.35rem]", isDark ? "border-white/10 bg-[#0c1018]" : "border-white/30 bg-[#f4f7fe]")}> 
+          <div className={cn("flex h-9 shrink-0 items-center gap-1.5 border-b px-3 md:h-11 md:px-4", isDark ? "border-white/[0.07] bg-[#111621]" : "border-black/[0.08] bg-white")}>
+            <span className="size-2 rounded-full bg-[#ff6b66]" />
+            <span className="size-2 rounded-full bg-[#f4bd4f]" />
+            <span className="size-2 rounded-full bg-[#51c77a]" />
+            <span className={cn("ml-2 h-4 flex-1 rounded-full border md:ml-3 md:h-5", isDark ? "border-white/[0.07] bg-white/[0.035]" : "border-black/[0.06] bg-[#f2f4f8]")} />
+            <span className="ml-1 font-mono text-[7px] uppercase tracking-[0.13em] text-zinc-500 md:text-[8px]">Bookify</span>
           </div>
-          <div className="flex h-[89%]">
-            <div className="hidden w-[17%] border-r border-[#dce4f4] bg-white p-[3%] sm:block">
-              <span className="mb-[26%] block h-2 w-[72%] rounded-full bg-[#1a6fd1]" />
-              {[0, 1, 2, 3, 4].map((item) => (
-                <span key={item} className="mb-[18%] block h-1.5 rounded-full bg-[#dde5f1]" />
-              ))}
-            </div>
-            <div className="relative flex-1 p-[4%]">
-              <div className="mb-[4%] flex items-end justify-between">
-                <div className="w-[45%]">
-                  <span className="mb-[5%] block h-2 w-[32%] rounded-full bg-[#1a6fd1]" />
-                  <span className="block h-3 w-full rounded-full bg-[#162542]" />
-                </div>
-                <span className="h-6 w-[20%] rounded-lg bg-[#1a6fd1]" />
-              </div>
-              <div className="mb-[4%] grid grid-cols-3 gap-[3%]">
-                {[0, 1, 2].map((item) => (
-                  <span key={item} className="aspect-[2/1] rounded-lg border border-[#d8e2f0] bg-white shadow-sm" />
-                ))}
-              </div>
-              <div className="grid h-[46%] grid-cols-[1.35fr_0.65fr] gap-[3%]">
-                <span className="rounded-xl border border-[#d8e2f0] bg-white shadow-sm" />
-                <span className="rounded-xl border border-[#d8e2f0] bg-[linear-gradient(150deg,#fff,#e3ecfb)] shadow-sm" />
-              </div>
-            </div>
+          <div className="relative min-h-0 flex-1 overflow-hidden">
+            {isScrollingPreview ? (
+              <motion.div
+                className="absolute inset-x-0 top-0"
+                animate={{ y: ["0%", "0%", scrollEnd, scrollEnd, "0%"] }}
+                transition={{ duration: 22, times: [0, 0.12, 0.63, 0.78, 1], repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Image src={screen.src} alt={`${screen.title} — Bookify`} width={screen.width} height={screen.height} sizes="(max-width: 768px) 94vw, 88vw" className="h-auto w-full" />
+              </motion.div>
+            ) : (
+              <Image src={screen.src} alt={`${screen.title} — Bookify`} fill sizes={isWide ? "(max-width: 768px) 94vw, 88vw" : "(max-width: 768px) 94vw, 44vw"} className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.012]" />
+            )}
           </div>
         </div>
 
-        <div className="absolute inset-0 flex items-center justify-center bg-[#05060f]/15 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100">
-          <span className="rounded-full border border-white/15 bg-[#05060f]/70 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-paper backdrop-blur-xl">
-            Screenshot ready
+        <div className="pointer-events-none absolute inset-0 flex items-end justify-end bg-gradient-to-t from-[#05060f]/45 via-transparent to-transparent p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-[#05060f]/75 px-4 py-2 font-mono text-[8px] uppercase tracking-[0.16em] text-paper backdrop-blur-xl">
+            Open full screen <ArrowUpRight size={12} />
           </span>
         </div>
-      </div>
+      </a>
       <figcaption className="flex items-start justify-between gap-5 px-1 pb-2 pt-4">
         <div>
           <p className="text-sm font-semibold text-paper md:text-base">{screen.title}</p>
-          <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-zinc-600">Add to /Bookify/{screen.file}</p>
+          <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-zinc-600">{screen.label}</p>
         </div>
         <span className="font-mono text-[9px] text-zinc-600">{String(index + 1).padStart(2, "0")}</span>
       </figcaption>
@@ -142,7 +138,7 @@ export function BookifyCaseStudy({ project }: { project: BookifyProject }) {
 
           <Link href="/" aria-label={`${siteConfig.name} home`} className="col-start-2">
             <span className="grid h-9 w-16 place-items-center overflow-hidden rounded-full bg-paper px-3 shadow-lg shadow-black/25 transition-transform duration-300 hover:scale-[1.04]">
-              <Image src={siteConfig.logo} alt={`${siteConfig.name} logo`} width={493} height={266} className="h-6 w-auto" />
+              <Image src={siteConfig.logo} alt={`${siteConfig.name} logo`} width={493} height={266} loading="eager" className="h-6 w-auto" />
             </span>
           </Link>
 
@@ -208,7 +204,7 @@ export function BookifyCaseStudy({ project }: { project: BookifyProject }) {
                   width={3265}
                   height={2969}
                   unoptimized
-                  priority
+                  loading="eager"
                   className="h-auto w-[82%] max-w-[56rem] object-contain drop-shadow-[0_28px_55px_rgba(0,0,0,0.5)] md:w-[52%]"
                 />
                 <div className="mt-7 flex items-center gap-3 font-mono text-[8px] uppercase tracking-[0.22em] text-zinc-500 sm:text-[9px]">
@@ -223,7 +219,7 @@ export function BookifyCaseStudy({ project }: { project: BookifyProject }) {
           <Reveal className="grid gap-12 lg:grid-cols-[0.66fr_1.34fr] lg:gap-20">
             <dl className="grid grid-cols-2 gap-x-5 gap-y-8 text-xs lg:grid-cols-1">
               {[
-                ["Project", "Individual PFE"],
+                ["Project", "Individual project"],
                 ["Role", project.role],
                 ["Timeline", project.year],
                 ["Focus", "UI/UX & frontend"],
@@ -341,7 +337,7 @@ export function BookifyCaseStudy({ project }: { project: BookifyProject }) {
             <Reveal className="lg:col-span-7">
               <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_70%_18%,rgba(26,111,209,0.7),transparent_34%),linear-gradient(145deg,#10192f,#05060f_70%)] p-[12%]">
                 <div className="absolute -left-[24%] -top-[30%] size-[72%] rounded-full border border-white/10" />
-                <Image src={project.logo} alt="Bookify visual identity" width={3265} height={2969} unoptimized className="relative z-10 h-auto w-[78%] object-contain drop-shadow-[0_24px_50px_rgba(0,0,0,0.48)]" />
+                <Image src={project.logo} alt="Bookify visual identity" width={3265} height={2969} unoptimized loading="eager" className="relative z-10 h-auto w-[78%] object-contain drop-shadow-[0_24px_50px_rgba(0,0,0,0.48)]" />
               </div>
             </Reveal>
 
@@ -389,7 +385,7 @@ export function BookifyCaseStudy({ project }: { project: BookifyProject }) {
               <h2 className="mt-3 text-5xl font-semibold leading-[0.92] tracking-tight md:text-7xl">One product, built in layers.</h2>
             </div>
             <p className="max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg lg:justify-self-end">
-              The gallery structure is ready. Replace each labelled slot with its matching screenshot when the final captures are prepared.
+              Selected screens show how one visual system adapts across public discovery, personal booking, provider operations, and platform administration.
             </p>
           </Reveal>
 
@@ -409,7 +405,7 @@ export function BookifyCaseStudy({ project }: { project: BookifyProject }) {
 
                 <div className="grid gap-5 md:grid-cols-2">
                   {group.screens.map((screen, index) => (
-                    <ScreenPlaceholder key={screen.file} screen={screen} index={index} />
+                    <ScreenMockup key={screen.src} screen={screen} index={index} />
                   ))}
                 </div>
               </section>

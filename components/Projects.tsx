@@ -89,14 +89,16 @@ export function Projects() {
                 <div className="absolute -right-1/3 -top-1/4 size-[85%] rounded-full border border-white/10 shadow-[0_0_90px_rgba(61,90,254,0.24)]" />
                 {project.logo ? (
                     <Image
-                      src={project.logo}
+                      src={project.slug === "rise-club" ? project.image : project.logo}
                       alt={`${project.title} logo`}
                       fill
                       unoptimized
                       sizes="(min-width: 768px) 60vw, 100vw"
                       className={cn(
-                        "object-contain drop-shadow-[0_18px_35px_rgba(0,0,0,0.38)] transition-transform duration-700 ease-out group-hover:scale-[1.045]",
-                        isWideCard ? "p-[14%] md:p-[8%]" : "p-[19%]",
+                        "drop-shadow-[0_18px_35px_rgba(0,0,0,0.38)] transition-transform duration-700 ease-out group-hover:scale-[1.045]",
+                        project.slug === "rise-club"
+                          ? "object-cover"
+                          : cn("object-contain", isWideCard ? "p-[14%] md:p-[8%]" : "p-[19%]"),
                       )}
                     />
                 ) : (
