@@ -40,8 +40,8 @@ function ArtworkCard({ artwork, index, onOpen }: { artwork: Artwork; index: numb
       className="group min-w-0 cursor-zoom-in text-left"
       aria-label={`Open ${artwork.title}`}
     >
-      <div className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#070720] p-1.5 shadow-[0_30px_90px_rgba(0,0,0,0.3)] transition-colors duration-500 group-hover:border-[#ffd400]/45 md:p-2">
-        <div className="relative overflow-hidden rounded-[1.25rem] bg-[#010080]">
+      <div className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#090a12] p-1.5 shadow-[0_30px_90px_rgba(0,0,0,0.38)] transition-colors duration-500 group-hover:border-white/25 md:p-2">
+        <div className="relative overflow-hidden rounded-[1.25rem] bg-[#080912]">
           <Image
             src={artwork.src}
             alt={artwork.title}
@@ -51,8 +51,8 @@ function ArtworkCard({ artwork, index, onOpen }: { artwork: Artwork; index: numb
             sizes="(min-width: 1280px) 31vw, (min-width: 640px) 47vw, 92vw"
             className="h-auto w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.015]"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#010080]/55 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-          <span className="absolute bottom-4 right-4 grid size-11 translate-y-2 place-items-center rounded-full border border-white/20 bg-[#010080]/70 text-white opacity-0 backdrop-blur-xl transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          <span className="absolute bottom-4 right-4 grid size-11 translate-y-2 place-items-center rounded-full border border-white/20 bg-black/70 text-white opacity-0 backdrop-blur-xl transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
             <Maximize2 size={16} />
           </span>
         </div>
@@ -99,7 +99,7 @@ export function RiseClubCaseStudy({ project }: { project: RiseClubProject }) {
       <header className="fixed inset-x-0 top-0 z-50 pt-4">
         <nav
           className={cn(
-            "glass-panel container-shell grid grid-cols-[1fr_auto_1fr] items-center rounded-full px-2.5 py-2.5",
+            "glass-panel rise-nav container-shell grid grid-cols-[1fr_auto_1fr] items-center rounded-full px-2.5 py-2.5",
             scrolled && "nav-glass--scrolled",
           )}
           aria-label="Project navigation"
@@ -138,7 +138,7 @@ export function RiseClubCaseStudy({ project }: { project: RiseClubProject }) {
                 initial={{ opacity: 0, x: -22 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.15, ease }}
-                className="mb-4 font-mono text-[10px] uppercase tracking-[0.18em] text-[#ffd400]"
+                className="mb-4 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-400"
               >
                 Independent club identity / {project.number}
               </motion.p>
@@ -150,7 +150,7 @@ export function RiseClubCaseStudy({ project }: { project: RiseClubProject }) {
                   initial={{ opacity: 0, y: 70 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.18, ease }}
-                  className="block text-[#8fa0ff]"
+                  className="block text-paper"
                 >
                   Club
                 </motion.span>
@@ -168,13 +168,20 @@ export function RiseClubCaseStudy({ project }: { project: RiseClubProject }) {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/12 bg-[#010080] p-2 shadow-[0_36px_120px_rgba(0,0,40,0.48)] md:rounded-[3rem] md:p-3">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.55rem] bg-[#010080] md:aspect-[16/8.4] md:rounded-[2.35rem]">
-              <Image src={project.cover} alt={`${project.title} identity cover`} fill priority quality={90} sizes="(max-width: 768px) 94vw, 88vw" className="object-cover" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_18%,rgba(255,212,0,0.13),transparent_30%),linear-gradient(110deg,rgba(1,0,128,0.02),rgba(1,0,128,0.3))]" />
-              <div className="absolute inset-x-5 bottom-5 flex items-center justify-between rounded-full border border-white/15 bg-[#01003f]/45 px-5 py-3 backdrop-blur-xl md:inset-x-7 md:bottom-7">
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/12 bg-[#090a12] p-2 shadow-[0_36px_120px_rgba(0,0,0,0.5)] md:rounded-[3rem] md:p-3">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.55rem] bg-[radial-gradient(circle_at_72%_20%,rgba(61,90,254,0.55),transparent_34%),linear-gradient(145deg,#010080,#05060f_82%)] md:aspect-[16/8.4] md:rounded-[2.35rem]">
+              <div className="absolute -right-[8%] -top-[30%] size-[72%] rounded-full border border-white/10 shadow-[0_0_100px_rgba(61,90,254,0.12)]" />
+              <motion.div
+                initial={{ opacity: 0, scale: 1.38 }}
+                animate={{ opacity: 1, scale: 1.52 }}
+                transition={{ duration: 0.95, delay: 0.28, ease }}
+                className="absolute inset-0 grid place-items-center p-[5%]"
+              >
+                <Image src={project.logo} alt={`${project.title} logo`} fill priority quality={90} sizes="(max-width: 768px) 94vw, 70vw" className="object-contain" />
+              </motion.div>
+              <div className="absolute inset-x-5 bottom-5 flex items-center justify-between rounded-full border border-white/15 bg-black/45 px-5 py-3 backdrop-blur-xl md:inset-x-7 md:bottom-7">
                 <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/75">Born to shine</span>
-                <span className="size-2 rounded-full bg-[#ffd400] shadow-[0_0_22px_#ffd400]" />
+                <span className="size-2 rounded-full bg-white/80 shadow-[0_0_18px_rgba(255,255,255,0.45)]" />
               </div>
             </div>
           </div>
@@ -213,7 +220,7 @@ export function RiseClubCaseStudy({ project }: { project: RiseClubProject }) {
         <section className="py-12 md:py-20">
           <Reveal className="mb-8 grid gap-5 md:grid-cols-[1fr_auto] md:items-end">
             <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#ffd400]">Identity direction</p>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-zinc-400">Identity direction</p>
               <h2 className="mt-3 max-w-4xl text-4xl font-semibold tracking-tight md:text-6xl">Rise, light, and forward motion.</h2>
             </div>
             <p className="max-w-md text-sm leading-relaxed text-zinc-400 md:text-right md:text-base">
@@ -222,22 +229,22 @@ export function RiseClubCaseStudy({ project }: { project: RiseClubProject }) {
           </Reveal>
 
           <div className="grid gap-5 lg:grid-cols-[1.25fr_0.75fr]">
-            <Reveal className="relative min-h-[30rem] overflow-hidden rounded-[2rem] border border-white/10 bg-[#010080] p-8 shadow-[0_30px_100px_rgba(0,0,45,0.34)] md:min-h-[38rem] md:rounded-[2.6rem] md:p-12">
-              <div className="absolute -right-[18%] -top-[28%] size-[70%] rounded-full border border-[#ffd400]/25 shadow-[0_0_90px_rgba(255,212,0,0.1)]" />
+            <Reveal className="relative min-h-[30rem] overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_72%_20%,rgba(61,90,254,0.55),transparent_34%),linear-gradient(145deg,#010080,#05060f_82%)] p-8 shadow-[0_30px_100px_rgba(0,0,0,0.4)] md:min-h-[38rem] md:rounded-[2.6rem] md:p-12">
+              <div className="absolute -right-[8%] -top-[30%] size-[72%] rounded-full border border-white/10 shadow-[0_0_100px_rgba(61,90,254,0.12)]" />
               <div className="relative grid h-full place-items-center">
-                <Image src={project.logo} alt="Rise Club primary logo" width={1000} height={1000} quality={90} className="w-full max-w-[48rem] scale-[1.35] object-contain" />
+                <Image src={project.logo} alt="Rise Club primary logo" width={2000} height={2000} quality={90} className="w-full max-w-[42rem] scale-[1.22] object-contain" />
               </div>
               <p className="absolute bottom-7 left-8 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/55 md:left-12">Primary logo</p>
             </Reveal>
 
             <div className="grid gap-5">
-              <Reveal delay={0.06} className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 md:rounded-[2.6rem] md:p-9">
-                <div className="flex items-center gap-2 text-[#ffd400]"><Sparkles size={16} /><span className="text-[9px] font-semibold uppercase tracking-[0.2em]">Core idea</span></div>
+              <Reveal delay={0.06} className="rounded-[2rem] border border-white/10 bg-[#0a0b14] p-7 shadow-[0_24px_70px_rgba(0,0,0,0.24)] md:rounded-[2.6rem] md:p-9">
+                <div className="flex items-center gap-2 text-zinc-400"><Sparkles size={16} /><span className="text-[9px] font-semibold uppercase tracking-[0.2em]">Core idea</span></div>
                 <p className="mt-8 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">A warm symbol inside a confident blue world.</p>
                 <p className="mt-5 text-sm leading-relaxed text-zinc-400">The custom lettering brings personality; the half-sun adds optimism and makes the mark easy to recognise across digital and physical formats.</p>
               </Reveal>
 
-              <Reveal delay={0.12} className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 md:rounded-[2.6rem] md:p-9">
+              <Reveal delay={0.12} className="rounded-[2rem] border border-white/10 bg-[#0a0b14] p-7 shadow-[0_24px_70px_rgba(0,0,0,0.24)] md:rounded-[2.6rem] md:p-9">
                 <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-zinc-600">Colour system</p>
                 <div className="mt-7 grid gap-3">
                   {project.palette.map((colour) => (
@@ -261,7 +268,7 @@ export function RiseClubCaseStudy({ project }: { project: RiseClubProject }) {
               <Reveal className="mb-9 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
                 <div>
                   <div className="flex items-center gap-3 text-[9px] font-semibold uppercase tracking-[0.2em] text-zinc-500">
-                    <span className="text-[#ffd400]">0{collectionIndex + 1}</span>
+                    <span className="text-zinc-300">0{collectionIndex + 1}</span>
                     <span>{collection.eyebrow}</span>
                   </div>
                   <h2 className="mt-3 max-w-4xl text-4xl font-semibold tracking-tight md:text-6xl">{collection.title}</h2>
@@ -282,10 +289,10 @@ export function RiseClubCaseStudy({ project }: { project: RiseClubProject }) {
         </section>
 
         <section className="pb-12 pt-8 md:pb-20 md:pt-10">
-          <Reveal className="relative overflow-hidden rounded-[2rem] border border-white/12 bg-[#010080]/45 px-6 py-9 shadow-[0_32px_100px_rgba(0,0,0,0.28)] backdrop-blur-md md:rounded-[3rem] md:px-10 md:py-12 lg:px-14 lg:py-14">
-            <div className="pointer-events-none absolute -right-20 -top-40 size-[32rem] rounded-full bg-[#ffd400]/15 blur-[110px]" />
+          <Reveal className="relative overflow-hidden rounded-[2rem] border border-white/12 bg-[#0a0b14] px-6 py-9 shadow-[0_32px_100px_rgba(0,0,0,0.4)] md:rounded-[3rem] md:px-10 md:py-12 lg:px-14 lg:py-14">
+            <div className="pointer-events-none absolute -right-20 -top-40 size-[32rem] rounded-full bg-electric/10 blur-[110px]" />
             <div className="relative z-10">
-              <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#ffd400]">Project outcome</p>
+              <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-zinc-400">Project outcome</p>
               <h2 className="mt-4 max-w-6xl text-balance text-[clamp(2.8rem,7.2vw,7.2rem)] font-semibold uppercase leading-[0.86] tracking-[-0.055em]">
                 One voice. Many ways to rise.
               </h2>
@@ -322,15 +329,15 @@ export function RiseClubCaseStudy({ project }: { project: RiseClubProject }) {
       <AnimatePresence>
         {selectedArtwork && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6" role="dialog" aria-modal="true" aria-label={selectedArtwork.title}>
-            <button type="button" className="absolute inset-0 cursor-zoom-out bg-[#010018]/94 backdrop-blur-2xl" onClick={() => setSelectedArtwork(null)} aria-label="Close artwork preview" />
+            <button type="button" className="absolute inset-0 cursor-zoom-out bg-black/94 backdrop-blur-2xl" onClick={() => setSelectedArtwork(null)} aria-label="Close artwork preview" />
             <motion.figure
               initial={{ opacity: 0, y: 24, scale: 0.975 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 18, scale: 0.985 }}
               transition={{ duration: 0.38, ease }}
-              className="relative z-10 flex max-h-[94svh] max-w-[94vw] flex-col overflow-hidden rounded-[1.75rem] border border-white/15 bg-[#070720] shadow-[0_40px_140px_rgba(0,0,0,0.75)]"
+              className="relative z-10 flex max-h-[94svh] max-w-[94vw] flex-col overflow-hidden rounded-[1.75rem] border border-white/15 bg-[#090a12] shadow-[0_40px_140px_rgba(0,0,0,0.75)]"
             >
-              <button type="button" onClick={() => setSelectedArtwork(null)} className="absolute right-3 top-3 z-20 grid size-11 place-items-center rounded-full border border-white/15 bg-[#010080]/70 text-paper backdrop-blur-xl transition-colors hover:bg-white/15" aria-label="Close artwork preview">
+              <button type="button" onClick={() => setSelectedArtwork(null)} className="absolute right-3 top-3 z-20 grid size-11 place-items-center rounded-full border border-white/15 bg-black/70 text-paper backdrop-blur-xl transition-colors hover:bg-white/15" aria-label="Close artwork preview">
                 <X size={18} />
               </button>
               <div className="min-h-0 flex-1 overflow-auto bg-black/20">
