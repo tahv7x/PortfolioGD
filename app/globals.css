@@ -106,7 +106,7 @@ body {
   .ambient-page::before {
     position: fixed;
     inset: -16%;
-    z-index: 0;
+    z-index: -1;
     pointer-events: none;
     content: "";
     background:
@@ -125,7 +125,7 @@ body {
     position: fixed;
     top: -26vw;
     left: -24vw;
-    z-index: 0;
+    z-index: -1;
     width: 152vw;
     height: 108vw;
     pointer-events: none;
@@ -183,6 +183,41 @@ body {
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.08),
       0 18px 70px rgba(0, 0, 0, 0.68);
+  }
+
+  .spark-ambient::before {
+    background:
+      radial-gradient(ellipse 52% 46% at 84% 5%, rgba(62, 48, 122, 0.7), transparent 72%),
+      radial-gradient(ellipse 44% 38% at 8% 34%, rgba(37, 31, 73, 0.42), transparent 76%),
+      radial-gradient(ellipse 38% 34% at 58% 78%, rgba(84, 68, 155, 0.2), transparent 76%),
+      #000000;
+  }
+
+  .spark-ambient::after {
+    opacity: 0.5;
+    background:
+      linear-gradient(116deg, transparent 20%, rgba(255, 255, 255, 0.035) 30%, rgba(55, 44, 108, 0.42) 39%, rgba(0, 0, 0, 0.78) 48%, rgba(37, 31, 73, 0.48) 57%, transparent 76%),
+      linear-gradient(103deg, transparent 35%, rgba(255, 255, 255, 0.025) 43%, rgba(75, 61, 140, 0.28) 50%, transparent 64%);
+  }
+
+  .spark-nav {
+    background-color: rgba(3, 2, 6, 0.84);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(37, 31, 73, 0.08));
+    border-color: rgba(255, 255, 255, 0.11);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 18px 64px rgba(0, 0, 0, 0.54);
+    backdrop-filter: blur(32px) saturate(118%);
+    -webkit-backdrop-filter: blur(32px) saturate(118%);
+  }
+
+  .spark-nav.nav-glass--scrolled {
+    background-color: rgba(0, 0, 0, 0.96);
+    border-color: rgba(255, 255, 255, 0.13);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 20px 74px rgba(0, 0, 0, 0.74),
+      0 0 45px rgba(37, 31, 73, 0.22);
   }
 
   .glass-panel {

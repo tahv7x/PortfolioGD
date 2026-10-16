@@ -7,7 +7,7 @@ import { Skills } from "@/components/Skills";
 
 export default function Home() {
   return (
-    <main className="ambient-page relative min-h-screen overflow-clip bg-ink-950 text-paper">
+    <main className="ambient-page relative z-0 min-h-screen overflow-clip bg-ink-950 text-paper">
       <Navbar />
       <Hero />
       <Projects />
