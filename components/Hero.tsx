@@ -80,7 +80,7 @@ export function Hero() {
                 {siteConfig.heroBio}
               </p>
               <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
-                Graphic Design · UI/UX · Brand Identity · React
+                Graphic Design · UI/UX · Brand Identity · Visual Content
               </p>
             </motion.div>
 

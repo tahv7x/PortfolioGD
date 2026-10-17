@@ -98,6 +98,8 @@ export function Projects() {
                         "object-contain drop-shadow-[0_18px_35px_rgba(0,0,0,0.38)] transition-transform duration-700 ease-out",
                         project.slug === "spark"
                           ? "scale-[1.25] p-0 group-hover:scale-[1.31]"
+                          : project.slug === "deer-goods"
+                          ? "scale-[1.38] p-0 group-hover:scale-[1.44]"
                           : project.slug === "rise-club"
                           ? "scale-[1.45] p-[6%] group-hover:scale-[1.5]"
                           : cn("group-hover:scale-[1.045]", isWideCard ? "p-[14%] md:p-[8%]" : "p-[19%]"),

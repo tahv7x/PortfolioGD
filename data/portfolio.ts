@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Hassbi taha",
+  name: "Hassbi Taha",
   logo: "/brand/logo.png",
   portrait: "/brand/portrait-cutout.png",
   role: "Independent graphic & UI/UX designer",
@@ -7,9 +7,9 @@ export const siteConfig = {
   availability: "Available for design projects",
   email: "thassbii@gmail.com",
   description:
-    "Independent graphic and UI/UX designer crafting expressive brands, campaigns, and digital experiences.",
+    "Independent graphic and UI/UX designer crafting distinctive identities, visual campaigns, and thoughtful digital experiences.",
   heroBio:
-    "I’m Taha, a Casablanca-based graphic and UI/UX designer. I create bold visual identities, thoughtful interfaces, and digital experiences that balance clarity with personality. I also use React to bring selected ideas to life.",
+    "I’m Taha, a Casablanca-based graphic and UI/UX designer creating distinctive brand identities, visual campaigns, and thoughtful digital experiences that balance clarity with personality.",
 } as const;
 
 export const navigation = [
@@ -82,16 +82,16 @@ export const projects = [
   },
   {
     number: "05",
-    title: "Serein Architecture",
-    category: "Web Design · Digital Experience",
+    title: "Deer Goods",
+    category: "Brand Identity · E-commerce",
     filter: "UI/UX",
-    services: ["Web Design", "Prototyping"],
-    summary: "A quiet digital experience where architectural restraint guides the interface system.",
-    year: "2024",
-    image: "/projects/serein.svg",
-    logo: null,
+    services: ["Logo Design", "UI/UX Design", "E-commerce"],
+    summary: "A warm identity and bespoke shopping experience for a Moroccan atelier crafting hand-stitched leather wallets and bags.",
+    year: "2026",
+    image: "/projects/Deer GOODS/DEER GOODS 2.jpg",
+    logo: "/projects/Deer GOODS/DEER GOODS without background.png",
     aspect: "aspect-[4/5]",
-    slug: null,
+    slug: "deer-goods",
   },
 ] as const;
 
@@ -531,6 +531,73 @@ export const sparkCaseStudy = {
       src: "/projects/SPARK/spark-2-logo-noir.jpg",
       width: 2000,
       height: 2000,
+    },
+  ],
+} as const;
+
+export const deerGoodsCaseStudy = {
+  slug: "deer-goods",
+  number: "05",
+  shortName: "Deer Goods",
+  title: "Deer Goods",
+  year: "2026",
+  client: "Personal concept",
+  role: "Logo Designer & UI/UX Designer",
+  category: "Brand Identity & E-commerce UI/UX",
+  website: "https://deergoodsfrontend.vercel.app/",
+  slogan: "Your Vision. Our Craft.",
+  introduction:
+    "Deer Goods is a concept for a Moroccan leather atelier creating hand-stitched wallets, bags, and bespoke pieces from full-grain leather.",
+  contribution:
+    "I created the logo and shaped the digital shopping experience, translating traditional craftsmanship into a warm, refined interface for ready-stock products and custom orders.",
+  services: ["Logo Design", "Visual Identity", "UI/UX Design", "E-commerce Experience"],
+  palette: [
+    { name: "Saddle Brown", value: "#68574C" },
+    { name: "Atelier Cream", value: "#FFFAE6" },
+  ],
+  principles: [
+    { title: "Hand-stitched", description: "Traditional saddle stitching gives every piece a human, durable finish." },
+    { title: "Full-grain leather", description: "Premium hides are selected to age naturally and develop character over time." },
+    { title: "Made to order", description: "Customers can move beyond ready stock and request a piece shaped around their needs." },
+  ],
+  experience: [
+    { number: "01", title: "Shop", description: "Browse wallets, bags, and available pieces through a calm product-first catalogue." },
+    { number: "02", title: "Custom orders", description: "Turn sketches, dimensions, and references into a clear bespoke request." },
+    { number: "03", title: "Our story", description: "Connect the products to Moroccan craft, material quality, and the maker behind them." },
+    { number: "04", title: "Account & cart", description: "Keep purchasing actions simple without breaking the premium editorial rhythm." },
+  ],
+  visuals: [
+    {
+      id: "brown-lockup",
+      title: "Warm brand lockup",
+      label: "Primary identity field",
+      src: "/projects/Deer GOODS/DEER GOODS 2.jpg",
+      width: 4750,
+      height: 4750,
+    },
+    {
+      id: "cream-lockup",
+      title: "Light brand lockup",
+      label: "Atelier cream variation",
+      src: "/projects/Deer GOODS/DEER GOODS.jpg",
+      width: 4750,
+      height: 4750,
+    },
+    {
+      id: "dark-lockup",
+      title: "Dark brand lockup",
+      label: "High-contrast variation",
+      src: "/projects/Deer GOODS/DEER GOODS without background.png",
+      width: 4750,
+      height: 4750,
+    },
+    {
+      id: "symbol",
+      title: "Deer symbol",
+      label: "Independent brand mark",
+      src: "/projects/Deer GOODS/symbole.png",
+      width: 1122,
+      height: 1184,
     },
   ],
 } as const;
