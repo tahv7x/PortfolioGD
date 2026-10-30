@@ -44,7 +44,7 @@ function VisualButton({ visual, className = "", onOpen }: { visual: SparkVisual;
             alt={visual.title}
             width={visual.width}
             height={visual.height}
-            quality={92}
+            quality={90}
             sizes="(min-width: 1024px) 48vw, 94vw"
             className="h-auto w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.015]"
           />
@@ -97,8 +97,7 @@ function LogoTile({
         src={visual.src}
         alt={visual.title}
         fill
-        unoptimized
-        quality={94}
+        quality={90}
         sizes="(min-width: 1024px) 58vw, 94vw"
         className={cn("object-contain transition-transform duration-700 ease-out", imageClassName)}
       />
@@ -228,8 +227,8 @@ export function SparkCaseStudy({ project }: { project: SparkProject }) {
                 src={project.cover.src}
                 alt="SPARK project cover"
                 fill
-                priority
-                quality={94}
+                preload
+                quality={90}
                 sizes="94vw"
                 className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.015]"
               />
@@ -287,7 +286,7 @@ export function SparkCaseStudy({ project }: { project: SparkProject }) {
             <Reveal className="relative min-h-[30rem] overflow-hidden rounded-[2rem] border border-white/10 bg-[#251f49] p-7 shadow-[0_30px_100px_rgba(0,0,0,0.42)] md:min-h-[38rem] md:rounded-[2.7rem] md:p-11">
               <div className="absolute -right-[20%] -top-[28%] size-[88%] rounded-full bg-white/[0.07] blur-3xl" />
               <div className="relative grid h-full place-items-center">
-                <Image src={project.monochromeLogo} alt="SPARK monochrome logo" width={1080} height={1080} quality={92} className="w-full max-w-[35rem] invert mix-blend-screen" />
+                <Image src={project.monochromeLogo} alt="SPARK monochrome logo" width={1080} height={1080} quality={90} className="w-full max-w-[35rem] invert mix-blend-screen" />
               </div>
               <p className="absolute bottom-7 left-8 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/45 md:left-11">Primary symbol</p>
             </Reveal>
@@ -529,7 +528,7 @@ export function SparkCaseStudy({ project }: { project: SparkProject }) {
                 <X size={18} />
               </button>
               <div className="min-h-0 flex-1 overflow-auto bg-black/20">
-                <Image src={selectedVisual.src} alt={selectedVisual.title} width={selectedVisual.width} height={selectedVisual.height} quality={94} sizes="94vw" className="mx-auto h-auto max-h-[84svh] w-auto max-w-full object-contain" loading="eager" />
+                <Image src={selectedVisual.src} alt={selectedVisual.title} width={selectedVisual.width} height={selectedVisual.height} quality={90} sizes="94vw" className="mx-auto h-auto max-h-[84svh] w-auto max-w-full object-contain" loading="eager" />
               </div>
               <figcaption className="flex items-center justify-between gap-5 border-t border-white/10 px-5 py-4 sm:px-6">
                 <span className="text-sm font-medium text-white sm:text-base">{selectedVisual.title}</span>

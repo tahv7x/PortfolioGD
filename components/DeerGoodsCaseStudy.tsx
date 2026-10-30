@@ -57,7 +57,7 @@ function IdentityTile({
         src={visual.src}
         alt={visual.title}
         fill
-        unoptimized
+        quality={90}
         sizes="(min-width: 1024px) 58vw, 94vw"
         className={cn("object-contain transition-transform duration-700 ease-out", imageClassName)}
       />
@@ -166,7 +166,7 @@ export function DeerGoodsCaseStudy({ project }: { project: DeerGoodsProject }) {
 
           <button type="button" onClick={() => setSelectedVisual(brownLockup)} className="group relative block w-full cursor-zoom-in overflow-hidden rounded-[2rem] border border-white/12 bg-[#68574c] p-2 shadow-[0_38px_130px_rgba(0,0,0,0.52)] md:rounded-[3rem] md:p-3">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[1.55rem] bg-[#68574c] md:aspect-[16/8.4] md:rounded-[2.35rem]">
-              <Image src={brownLockup.src} alt="Deer Goods primary identity" fill priority quality={94} sizes="94vw" className="scale-[1.08] object-contain transition-transform duration-1000 ease-out group-hover:scale-[1.11]" />
+              <Image src={brownLockup.src} alt="Deer Goods primary identity" fill preload quality={90} sizes="94vw" className="scale-[1.08] object-contain transition-transform duration-1000 ease-out group-hover:scale-[1.11]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
               <div className="absolute inset-x-5 bottom-5 flex items-center justify-between rounded-full border border-white/15 bg-black/30 px-5 py-3 backdrop-blur-xl md:inset-x-7 md:bottom-7">
                 <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/75">{project.slogan}</span>
@@ -333,7 +333,7 @@ export function DeerGoodsCaseStudy({ project }: { project: DeerGoodsProject }) {
             <motion.figure initial={{ opacity: 0, y: 24, scale: 0.975 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 18, scale: 0.985 }} transition={{ duration: 0.38, ease }} className="relative z-10 flex max-h-[94svh] max-w-[94vw] flex-col overflow-hidden rounded-[1.75rem] border border-white/15 bg-[#100d0b] shadow-[0_40px_140px_rgba(0,0,0,0.8)]">
               <button type="button" onClick={() => setSelectedVisual(null)} className="absolute right-3 top-3 z-20 grid size-11 place-items-center rounded-full border border-white/15 bg-black/70 text-white backdrop-blur-xl transition-colors hover:bg-white/15" aria-label="Close visual preview"><X size={18} /></button>
               <div className="min-h-0 flex-1 overflow-auto bg-black/20">
-                <Image src={selectedVisual.src} alt={selectedVisual.title} width={selectedVisual.width} height={selectedVisual.height} unoptimized sizes="94vw" className="mx-auto h-auto max-h-[84svh] w-auto max-w-full object-contain" loading="eager" />
+                <Image src={selectedVisual.src} alt={selectedVisual.title} width={selectedVisual.width} height={selectedVisual.height} quality={90} sizes="94vw" className="mx-auto h-auto max-h-[84svh] w-auto max-w-full object-contain" loading="eager" />
               </div>
               <figcaption className="flex items-center justify-between gap-5 border-t border-white/10 px-5 py-4 sm:px-6">
                 <span className="text-sm font-medium text-white sm:text-base">{selectedVisual.title}</span>

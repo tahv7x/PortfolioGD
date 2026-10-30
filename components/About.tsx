@@ -8,7 +8,7 @@ import { SectionHeading } from "./SectionHeading";
 export function About() {
   return (
     <section id="about" className="container-shell relative z-10 scroll-mt-28 py-10 md:py-14">
-      <SectionHeading eyebrow="About the studio" title="Strategy first. Aesthetics always." index="03" />
+      <SectionHeading eyebrow="About me" title="Strategy first. Aesthetics always." index="03" />
 
       <div className="grid gap-10 md:grid-cols-2 md:gap-16">
         <motion.div
@@ -32,19 +32,29 @@ export function About() {
           </a>
         </motion.div>
 
-        <div className="grid divide-y divide-white/10 border-y border-white/10">
-          {highlights.map(([value, label], index) => (
-            <motion.div
-              key={label}
+        <div className="grid gap-3">
+          {highlights.map((highlight, index) => (
+            <motion.article
+              key={highlight.label}
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ delay: index * 0.1, duration: 0.65 }}
-              className="flex items-center justify-between py-5 md:py-7"
+              whileHover={{ x: 5 }}
+              className="group grid grid-cols-[auto_1fr] items-center gap-5 overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-xl md:gap-7 md:p-5"
             >
-              <span className="text-5xl font-black tracking-display md:text-7xl">{value}</span>
-              <span className="max-w-24 text-right text-xs uppercase tracking-[0.18em] text-zinc-500">{label}</span>
-            </motion.div>
+              <span className="grid size-20 place-items-center rounded-[1.25rem] border border-white/10 bg-black/20 text-4xl font-black tracking-display text-paper transition-colors group-hover:border-electric/35 group-hover:text-electric md:size-24 md:text-5xl">
+                {highlight.value}
+              </span>
+              <span className="min-w-0">
+                <span className="block text-sm font-semibold uppercase tracking-[0.13em] text-zinc-100 md:text-base">
+                  {highlight.label}
+                </span>
+                <span className="mt-2 block max-w-sm text-sm leading-relaxed text-zinc-500">
+                  {highlight.detail}
+                </span>
+              </span>
+            </motion.article>
           ))}
         </div>
       </div>

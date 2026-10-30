@@ -17,13 +17,12 @@ export function Hero() {
   const designerX = useTransform(scrollYProgress, [0, 1], ["0%", "7%"]);
   const titleScale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
   const copyY = useTransform(scrollYProgress, [0, 1], [0, -48]);
-  const portraitY = useTransform(scrollYProgress, [0, 1], [0, 72]);
 
   return (
     <section
       id="top"
       ref={sectionRef}
-      className="relative z-10 flex min-h-[86svh] items-start overflow-hidden pb-6 pt-28 md:pb-8 md:pt-32"
+      className="relative z-10 flex min-h-[86svh] items-start overflow-hidden pb-20 pt-28 md:pb-24 md:pt-32"
     >
       <motion.div
         style={{ y: orbY }}
@@ -74,7 +73,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.72, duration: 0.75 }}
-              className="mt-6 max-w-2xl border-l border-electric/60 pl-5 md:mt-8 md:pl-7"
+              className="mt-4 max-w-2xl border-l border-electric/60 pl-5 md:mt-5 md:pl-7"
             >
               <p className="text-lg leading-relaxed text-zinc-300 md:text-xl md:leading-relaxed">
                 {siteConfig.heroBio}
@@ -103,7 +102,6 @@ export function Hero() {
 
           <div className="lg:pt-3">
             <motion.div
-              style={{ y: portraitY }}
               initial={{ opacity: 0, x: 35, rotate: 1.5 }}
               animate={{ opacity: 1, x: 0, rotate: 0 }}
               transition={{ delay: 0.48, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
@@ -117,7 +115,6 @@ export function Hero() {
                   alt={`Portrait of ${siteConfig.name}`}
                   fill
                   loading="eager"
-                  unoptimized
                   sizes="(max-width: 1023px) 100vw, 30vw"
                   className="origin-bottom translate-y-2 scale-[0.99] object-contain object-bottom drop-shadow-[0_22px_35px_rgba(0,0,0,0.36)] transition-transform duration-700 group-hover:translate-y-1 group-hover:scale-[1.015]"
                 />
@@ -131,18 +128,20 @@ export function Hero() {
                 </div>
               </div>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.05, duration: 0.7 }}
-              className="mt-4 text-right font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-zinc-500"
-            >
-              Scroll to explore
-              <br />Work · Services · About
-            </motion.div>
           </div>
         </div>
+      </div>
+
+      <div className="pointer-events-none absolute inset-x-0 bottom-5 z-20 md:bottom-7">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.05, duration: 0.7 }}
+          className="container-shell text-right font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-zinc-500"
+        >
+          Scroll to explore
+          <br />Work · Services · About
+        </motion.div>
       </div>
     </section>
   );

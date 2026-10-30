@@ -1,28 +1,25 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Braces, PanelsTopLeft, PenTool, Shapes } from "lucide-react";
-import {
-  TbBrandAdobeIllustrator,
-  TbBrandAdobePhotoshop,
-} from "react-icons/tb";
 import { SiFigma, SiReact } from "react-icons/si";
 import { services } from "@/data/portfolio";
 import { SectionHeading } from "./SectionHeading";
 
-const serviceIcons = [PenTool, PanelsTopLeft, Shapes, Braces];
+const serviceIcons = [PenTool, Shapes, PanelsTopLeft, Braces];
 
 const creativeTools = [
   {
     name: "Photoshop",
     category: "Image editing",
-    icon: TbBrandAdobePhotoshop,
+    logo: "/brand/tools/photoshop.svg",
     accent: "#31a8ff",
   },
   {
     name: "Illustrator",
     category: "Vector design",
-    icon: TbBrandAdobeIllustrator,
+    logo: "/brand/tools/illustrator.svg",
     accent: "#ff9a00",
   },
   {
@@ -46,7 +43,7 @@ export function Skills() {
 
       <div className="mb-10 grid grid-cols-2 gap-3 md:mb-14 md:grid-cols-4 md:gap-4">
         {creativeTools.map((tool, index) => {
-          const ToolIcon = tool.icon;
+          const ToolIcon = "icon" in tool ? tool.icon : null;
 
           return (
             <motion.div
@@ -63,11 +60,29 @@ export function Skills() {
                 style={{ backgroundColor: tool.accent }}
               />
 
-              <ToolIcon
-                aria-hidden="true"
-                className="relative mb-10 size-9 transition-transform duration-500 group-hover:scale-110 md:size-10"
-                style={{ color: tool.accent }}
-              />
+              <div className="relative mb-10 grid size-14 place-items-center transition-transform duration-500 group-hover:scale-105">
+                {"logo" in tool ? (
+                  <Image
+                    src={tool.logo}
+                    alt=""
+                    aria-hidden="true"
+                    width={128}
+                    height={128}
+                    className="size-12 rounded-xl object-contain shadow-[0_12px_35px_rgba(0,0,0,0.28)] md:size-14"
+                  />
+                ) : ToolIcon ? (
+                  <span
+                    className="grid size-12 place-items-center rounded-xl border border-white/10 bg-black/25 md:size-14"
+                    style={{ boxShadow: `inset 0 1px 0 rgba(255,255,255,.08), 0 12px 35px ${tool.accent}18` }}
+                  >
+                    <ToolIcon
+                      aria-hidden="true"
+                      className="size-7 md:size-8"
+                      style={{ color: tool.accent }}
+                    />
+                  </span>
+                ) : null}
+              </div>
               <p className="relative text-base font-semibold tracking-tight md:text-lg">{tool.name}</p>
               <p className="relative mt-1 text-[10px] uppercase tracking-[0.16em] text-zinc-500">
                 {tool.category}

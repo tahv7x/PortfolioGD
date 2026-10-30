@@ -65,6 +65,38 @@ function ArtworkCard({ artwork, index, onOpen }: { artwork: Artwork; index: numb
   );
 }
 
+function CollectionContext({
+  label,
+  title,
+  children,
+  className = "",
+}: {
+  label: string;
+  title: string;
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <motion.aside
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.24 }}
+      transition={{ duration: 0.68, ease }}
+      className={cn(
+        "relative flex min-h-56 flex-col justify-between overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_24px_70px_rgba(0,0,0,0.22)] md:min-h-64 md:p-8",
+        className,
+      )}
+    >
+      <div className="pointer-events-none absolute -right-16 -top-20 size-56 rounded-full bg-electric/10 blur-3xl" />
+      <div className="relative">
+        <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-electric">{label}</p>
+        <h3 className="mt-5 max-w-xl text-2xl font-semibold leading-tight tracking-tight text-paper md:text-3xl">{title}</h3>
+      </div>
+      <p className="relative mt-8 max-w-2xl text-sm leading-relaxed text-zinc-400 md:text-base">{children}</p>
+    </motion.aside>
+  );
+}
+
 export function RiseClubCaseStudy({ project }: { project: RiseClubProject }) {
   const [scrolled, setScrolled] = useState(false);
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
@@ -177,7 +209,7 @@ export function RiseClubCaseStudy({ project }: { project: RiseClubProject }) {
                 transition={{ duration: 0.95, delay: 0.28, ease }}
                 className="absolute inset-0 grid place-items-center p-[5%]"
               >
-                <Image src={project.logo} alt={`${project.title} logo`} fill priority quality={90} sizes="(max-width: 768px) 94vw, 70vw" className="object-contain" />
+                <Image src={project.logo} alt={`${project.title} logo`} fill preload quality={90} sizes="(max-width: 768px) 94vw, 70vw" className="object-contain" />
               </motion.div>
               <div className="absolute inset-x-5 bottom-5 flex items-center justify-between rounded-full border border-white/15 bg-black/45 px-5 py-3 backdrop-blur-xl md:inset-x-7 md:bottom-7">
                 <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/75">Born to shine</span>
@@ -279,11 +311,56 @@ export function RiseClubCaseStudy({ project }: { project: RiseClubProject }) {
                 </div>
               </Reveal>
 
-              <div className={cn("grid items-start gap-5", collection.id === "launch-posters" ? "md:grid-cols-2" : "sm:grid-cols-2 xl:grid-cols-3")}>
-                {collection.items.map((artwork, artworkIndex) => (
-                  <ArtworkCard key={artwork.src} artwork={artwork} index={artworkIndex} onOpen={() => setSelectedArtwork(artwork)} />
-                ))}
-              </div>
+              {collection.id === "launch-posters" ? (
+                <div className="grid items-start gap-5 md:grid-cols-2">
+                  <ArtworkCard
+                    artwork={collection.items[0]}
+                    index={0}
+                    onOpen={() => setSelectedArtwork(collection.items[0])}
+                  />
+                  <div className="grid gap-5">
+                    <ArtworkCard
+                      artwork={collection.items[1]}
+                      index={1}
+                      onOpen={() => setSelectedArtwork(collection.items[1])}
+                    />
+                    <CollectionContext label={collection.contextLabel} title={collection.contextTitle}>
+                      {collection.context}
+                    </CollectionContext>
+                  </div>
+                </div>
+              ) : collection.id === "applications" ? (
+                <div className="grid items-start gap-5 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
+                  <ArtworkCard
+                    artwork={collection.items[0]}
+                    index={0}
+                    onOpen={() => setSelectedArtwork(collection.items[0])}
+                  />
+                  <div className="grid items-start gap-5 sm:grid-cols-2">
+                    {collection.items.slice(1).map((artwork, artworkIndex) => (
+                      <ArtworkCard
+                        key={artwork.src}
+                        artwork={artwork}
+                        index={artworkIndex + 1}
+                        onOpen={() => setSelectedArtwork(artwork)}
+                      />
+                    ))}
+                    <CollectionContext
+                      label={collection.contextLabel}
+                      title={collection.contextTitle}
+                      className="sm:col-span-2"
+                    >
+                      {collection.context}
+                    </CollectionContext>
+                  </div>
+                </div>
+              ) : (
+                <div className="grid items-start gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                  {collection.items.map((artwork, artworkIndex) => (
+                    <ArtworkCard key={artwork.src} artwork={artwork} index={artworkIndex} onOpen={() => setSelectedArtwork(artwork)} />
+                  ))}
+                </div>
+              )}
             </section>
           ))}
         </section>

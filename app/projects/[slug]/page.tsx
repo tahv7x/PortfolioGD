@@ -5,7 +5,8 @@ import { ProjectCaseStudy } from "@/components/ProjectCaseStudy";
 import { RiseClubCaseStudy } from "@/components/RiseClubCaseStudy";
 import { SparkCaseStudy } from "@/components/SparkCaseStudy";
 import { DeerGoodsCaseStudy } from "@/components/DeerGoodsCaseStudy";
-import { bookifyCaseStudy, deerGoodsCaseStudy, getProjectBySlug, projectCaseStudies, riseClubCaseStudy, sparkCaseStudy } from "@/data/portfolio";
+import { SkiroCaseStudy } from "@/components/SkiroCaseStudy";
+import { bookifyCaseStudy, deerGoodsCaseStudy, getProjectBySlug, projectCaseStudies, riseClubCaseStudy, skiroCaseStudy, sparkCaseStudy } from "@/data/portfolio";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -18,6 +19,7 @@ export function generateStaticParams() {
     { slug: riseClubCaseStudy.slug },
     { slug: sparkCaseStudy.slug },
     { slug: deerGoodsCaseStudy.slug },
+    { slug: skiroCaseStudy.slug },
   ];
 }
 
@@ -51,6 +53,13 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     };
   }
 
+  if (slug === skiroCaseStudy.slug) {
+    return {
+      title: `${skiroCaseStudy.title} — Logo & Carousel Case Study`,
+      description: skiroCaseStudy.introduction,
+    };
+  }
+
   const project = getProjectBySlug(slug);
 
   if (!project) return {};
@@ -78,6 +87,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   if (slug === deerGoodsCaseStudy.slug) {
     return <DeerGoodsCaseStudy project={deerGoodsCaseStudy} />;
+  }
+
+  if (slug === skiroCaseStudy.slug) {
+    return <SkiroCaseStudy project={skiroCaseStudy} />;
   }
 
   const project = getProjectBySlug(slug);

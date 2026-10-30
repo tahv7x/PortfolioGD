@@ -8,6 +8,8 @@ import { projectFilters, projects } from "@/data/portfolio";
 import { SectionHeading } from "./SectionHeading";
 import { cn } from "@/lib/utils";
 
+
+
 export function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
   const availableFilters = projectFilters.filter(
@@ -85,14 +87,27 @@ export function Projects() {
                   isWideCard ? "aspect-[4/3] md:aspect-[2.35/1]" : "aspect-[4/3]",
                 )}
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(61,90,254,0.7),transparent_38%),linear-gradient(145deg,#151d48,#05060f_70%)]" />
-                <div className="absolute -right-1/3 -top-1/4 size-[85%] rounded-full border border-white/10 shadow-[0_0_90px_rgba(61,90,254,0.24)]" />
-                {project.logo ? (
+                {project.slug === "skiro" && "slides" in project ? (
+                  <>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(239,5,0,0.35),transparent_42%),linear-gradient(145deg,#1a0000,#050505_70%)]" />
+                    <div className="absolute -right-1/3 -top-1/4 size-[85%] rounded-full border border-white/[0.06] shadow-[0_0_90px_rgba(239,5,0,0.12)]" />
                     <Image
                       src={project.logo}
                       alt={`${project.title} logo`}
                       fill
-                      unoptimized
+                      sizes="(min-width: 768px) 60vw, 100vw"
+                      className="object-contain p-[19%] drop-shadow-[0_18px_35px_rgba(0,0,0,0.5)] transition-transform duration-700 ease-out group-hover:scale-[1.045]"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(61,90,254,0.7),transparent_38%),linear-gradient(145deg,#151d48,#05060f_70%)]" />
+                    <div className="absolute -right-1/3 -top-1/4 size-[85%] rounded-full border border-white/10 shadow-[0_0_90px_rgba(61,90,254,0.24)]" />
+                    {project.logo ? (
+                    <Image
+                      src={project.logo}
+                      alt={`${project.title} logo`}
+                      fill
                       sizes="(min-width: 768px) 60vw, 100vw"
                       className={cn(
                         "object-contain drop-shadow-[0_18px_35px_rgba(0,0,0,0.38)] transition-transform duration-700 ease-out",
@@ -105,13 +120,16 @@ export function Projects() {
                           : cn("group-hover:scale-[1.045]", isWideCard ? "p-[14%] md:p-[8%]" : "p-[19%]"),
                       )}
                     />
-                ) : (
-                  <div className="absolute inset-0 grid place-items-center">
-                    <span className="text-[clamp(5rem,12vw,10rem)] font-black uppercase leading-none tracking-display text-paper/90 drop-shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-700 group-hover:scale-[1.045]">
-                      {monogram}
-                    </span>
-                  </div>
+                    ) : (
+                      <div className="absolute inset-0 grid place-items-center">
+                        <span className="text-[clamp(5rem,12vw,10rem)] font-black uppercase leading-none tracking-display text-paper/90 drop-shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-700 group-hover:scale-[1.045]">
+                          {monogram}
+                        </span>
+                      </div>
+                    )}
+                  </>
                 )}
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/15 opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
                 <div className="absolute inset-x-0 top-0 flex items-center justify-between p-4 md:p-5">
                   <span className="rounded-full border border-white/15 bg-black/25 px-3 py-1.5 font-mono text-[10px] backdrop-blur-xl">

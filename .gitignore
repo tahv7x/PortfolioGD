@@ -35,3 +35,40 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI & Agent artifacts
+ANTIGRAVITY_HANDOFF.md
+*HANDOFF*.md
+CLAUDE.md
+.claude
+.gemini
+.agents
+
+# Editor & IDE directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
+
+# Operating System files
+Thumbs.db
+Desktop.ini
+
+# Raw camera media files
+*.rw2
+*.RW2
+*.cr2
+*.CR2
+*.nef
+*.NEF
+*.arw
+*.ARW
+*.dng
+*.DNG
+
+
+#antigravity
+.ANTIGRAVITY_HANDOFF.md

@@ -203,7 +203,6 @@ export function BookifyCaseStudy({ project }: { project: BookifyProject }) {
                   alt="Bookify logo"
                   width={3265}
                   height={2969}
-                  unoptimized
                   loading="eager"
                   className="h-auto w-[82%] max-w-[56rem] object-contain drop-shadow-[0_28px_55px_rgba(0,0,0,0.5)] md:w-[52%]"
                 />
@@ -337,7 +336,7 @@ export function BookifyCaseStudy({ project }: { project: BookifyProject }) {
             <Reveal className="lg:col-span-7">
               <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_70%_18%,rgba(26,111,209,0.7),transparent_34%),linear-gradient(145deg,#10192f,#05060f_70%)] p-[12%]">
                 <div className="absolute -left-[24%] -top-[30%] size-[72%] rounded-full border border-white/10" />
-                <Image src={project.logo} alt="Bookify visual identity" width={3265} height={2969} unoptimized loading="eager" className="relative z-10 h-auto w-[78%] object-contain drop-shadow-[0_24px_50px_rgba(0,0,0,0.48)]" />
+                <Image src={project.logo} alt="Bookify visual identity" width={3265} height={2969} sizes="(min-width: 1024px) 52vw, 78vw" className="relative z-10 h-auto w-[78%] object-contain drop-shadow-[0_24px_50px_rgba(0,0,0,0.48)]" />
               </div>
             </Reveal>
 

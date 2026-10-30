@@ -144,7 +144,6 @@ export function ProjectCaseStudy({ project }: { project: CaseStudy }) {
                     alt={`${project.title} logo`}
                     width={561}
                     height={592}
-                    unoptimized
                     className="max-h-[70%] w-auto max-w-[72%] object-contain drop-shadow-[0_24px_45px_rgba(0,0,0,0.42)]"
                   />
                 ) : (
