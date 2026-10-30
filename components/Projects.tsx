@@ -87,47 +87,31 @@ export function Projects() {
                   isWideCard ? "aspect-[4/3] md:aspect-[2.35/1]" : "aspect-[4/3]",
                 )}
               >
-                {project.slug === "skiro" && "slides" in project ? (
-                  <>
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(239,5,0,0.35),transparent_42%),linear-gradient(145deg,#1a0000,#050505_70%)]" />
-                    <div className="absolute -right-1/3 -top-1/4 size-[85%] rounded-full border border-white/[0.06] shadow-[0_0_90px_rgba(239,5,0,0.12)]" />
-                    <Image
-                      src={project.logo}
-                      alt={`${project.title} logo`}
-                      fill
-                      sizes="(min-width: 768px) 60vw, 100vw"
-                      className="object-contain p-[19%] drop-shadow-[0_18px_35px_rgba(0,0,0,0.5)] transition-transform duration-700 ease-out group-hover:scale-[1.045]"
-                    />
-                  </>
-                ) : (
-                  <>
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(61,90,254,0.7),transparent_38%),linear-gradient(145deg,#151d48,#05060f_70%)]" />
-                    <div className="absolute -right-1/3 -top-1/4 size-[85%] rounded-full border border-white/10 shadow-[0_0_90px_rgba(61,90,254,0.24)]" />
-                    {project.logo ? (
-                    <Image
-                      src={project.logo}
-                      alt={`${project.title} logo`}
-                      fill
-                      sizes="(min-width: 768px) 60vw, 100vw"
-                      className={cn(
-                        "object-contain drop-shadow-[0_18px_35px_rgba(0,0,0,0.38)] transition-transform duration-700 ease-out",
-                        project.slug === "spark"
-                          ? "scale-[1.25] p-0 group-hover:scale-[1.31]"
-                          : project.slug === "deer-goods"
-                          ? "scale-[1.38] p-0 group-hover:scale-[1.44]"
-                          : project.slug === "rise-club"
-                          ? "scale-[1.45] p-[6%] group-hover:scale-[1.5]"
-                          : cn("group-hover:scale-[1.045]", isWideCard ? "p-[14%] md:p-[8%]" : "p-[19%]"),
-                      )}
-                    />
-                    ) : (
-                      <div className="absolute inset-0 grid place-items-center">
-                        <span className="text-[clamp(5rem,12vw,10rem)] font-black uppercase leading-none tracking-display text-paper/90 drop-shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-700 group-hover:scale-[1.045]">
-                          {monogram}
-                        </span>
-                      </div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(61,90,254,0.7),transparent_38%),linear-gradient(145deg,#151d48,#05060f_70%)]" />
+                <div className="absolute -right-1/3 -top-1/4 size-[85%] rounded-full border border-white/10 shadow-[0_0_90px_rgba(61,90,254,0.24)]" />
+                {project.logo ? (
+                  <Image
+                    src={project.logo}
+                    alt={`${project.title} logo`}
+                    fill
+                    sizes="(min-width: 768px) 60vw, 100vw"
+                    className={cn(
+                      "object-contain drop-shadow-[0_18px_35px_rgba(0,0,0,0.38)] transition-transform duration-700 ease-out",
+                      project.slug === "spark"
+                        ? "scale-[1.25] p-0 group-hover:scale-[1.31]"
+                        : project.slug === "deer-goods"
+                        ? "scale-[1.38] p-0 group-hover:scale-[1.44]"
+                        : project.slug === "rise-club"
+                        ? "scale-[1.45] p-[6%] group-hover:scale-[1.5]"
+                        : cn("group-hover:scale-[1.045]", isWideCard ? "p-[14%] md:p-[8%]" : "p-[19%]"),
                     )}
-                  </>
+                  />
+                ) : (
+                  <div className="absolute inset-0 grid place-items-center">
+                    <span className="text-[clamp(5rem,12vw,10rem)] font-black uppercase leading-none tracking-display text-paper/90 drop-shadow-[0_18px_35px_rgba(0,0,0,0.35)] transition-transform duration-700 group-hover:scale-[1.045]">
+                      {monogram}
+                    </span>
+                  </div>
                 )}
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/15 opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
