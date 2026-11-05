@@ -704,8 +704,8 @@ export const services = [
 ] as const;
 
 export const socials = [
-  { label: "Instagram", href: "https://www.instagram.com/" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/" },
+  { label: "Instagram", href: "https://www.instagram.com/tahv7x" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/hassbi-taha-874367346/" },
   { label: "Behance", href: "https://www.behance.net/" },
 ] as const;
 
