@@ -3,7 +3,7 @@
   logo: "/brand/logo.png",
   portrait: "/brand/portrait-cutout.png",
   role: "Independent graphic & UI/UX designer",
-  location: "Casablanca &· Working worldwide",
+  location: "Casablanca · Working worldwide",
   availability: "Available for design projects",
   email: "thassbii@gmail.com",
   description:
@@ -43,11 +43,11 @@ export const projects = [
   {
     number: "01",
     title: "Club Sportif Alkendi",
-    category: "Branding &· Visual Content",
+    category: "Branding · Visual Content",
     filter: "Branding",
     services: ["Brand Identity", "Social Media", "Football Apparel"],
     summary: "A flexible sports identity and visual system created for CSK's tournaments, events, social content, and team apparel.",
-    year: "2025&€“2026",
+    year: "2025–2026",
     image: "/projects/csk/cover-placeholder.svg",
     logo: "/projects/csk/logo.png",
     aspect: "aspect-[4/5]",
@@ -60,7 +60,7 @@ export const projects = [
     filter: "UI/UX",
     services: ["UX Strategy", "Interface Design", "React Frontend"],
     summary: "A complete service-booking experience connecting clients, providers, and administrators through one clear product system.",
-    year: "2025&€“2026",
+    year: "2025–2026",
     image: "/projects/Bookify/Logo wout bg.png",
     logo: "/projects/Bookify/Logo wout bg.png",
     aspect: "aspect-[4/5]",
@@ -69,11 +69,11 @@ export const projects = [
   {
     number: "03",
     title: "Rise Club",
-    category: "Branding &· Social Content",
+    category: "Branding · Social Content",
     filter: "Branding",
     services: ["Logo Design", "Poster Design", "Social Media"],
     summary: "An energetic identity and visual content system built around optimism, expression, and a bold rise-and-shine attitude.",
-    year: "2025&€“2026",
+    year: "2025–2026",
     image: "/projects/riseclub/logo with background.jpg",
     logo: "/projects/riseclub/logo without background.png.png",
     aspect: "aspect-[4/5]",
@@ -82,11 +82,11 @@ export const projects = [
   {
     number: "04",
     title: "SPARK",
-    category: "Brand Identity &· Creative Agency",
+    category: "Brand Identity · Creative Agency",
     filter: "Branding",
     services: ["Logo Design", "Brand Guidelines", "Visual Identity"],
     summary: "A focused identity system for a multidisciplinary agency helping brands grow through digital, visual, and film-led solutions.",
-    year: "2026&€“Now",
+    year: "2026–Present",
     image: "/projects/SPARK/spark-logo-colored.jpg",
     logo: "/projects/SPARK/spark-logo-png.png",
     aspect: "aspect-[4/5]",
@@ -95,7 +95,7 @@ export const projects = [
   {
     number: "05",
     title: "Deer Goods",
-    category: "Brand Identity &· E-commerce",
+    category: "Brand Identity · E-commerce",
     filter: "UI/UX",
     services: ["Logo Design", "UI/UX Design", "E-commerce"],
     summary: "A warm identity and bespoke shopping experience for a Moroccan atelier crafting hand-stitched leather wallets and bags.",
@@ -108,7 +108,7 @@ export const projects = [
   {
     number: "06",
     title: "SKIRO",
-    category: "Logo Design &· Social Carousel",
+    category: "Logo Design · Social Carousel",
     filter: "Campaigns",
     services: ["Logo Design", "Art Direction", "Carousel Design"],
     summary: "A bold logo and six-frame fashion carousel shaped through high-contrast photography, oversized type, and a vivid red visual signature.",
@@ -135,14 +135,14 @@ export const projectCaseStudies = [
     shortName: "CSK",
     logo: "/projects/csk/logo.png",
     title: "Club Sportif Alkendi",
-    year: "2025&€“2026",
+    year: "2025–2026",
     client: "University Sports Club",
     role: "Graphic Designer",
     category: "Branding & Visual Content",
     introduction:
       "CSK is our university sports club, representing students in national tournaments and sporting events while also organising its own competitions.",
     contribution:
-      "I developed the club&€™s branding and visual content across social media, promotional posters, tournament communication, and football apparel.",
+      "I developed the club's branding and visual content across social media, promotional posters, tournament communication, and football apparel.",
     services: [
       "Brand Identity",
       "Logo Design",
@@ -170,12 +170,12 @@ export const projectCaseStudies = [
         title: "Match & schedule posters",
         description:
           "Fixtures, schedules, and knockout-stage announcements designed to make every tournament moment immediately understandable.",
-        format: "1080 Ã— 1350",
+        format: "1080 × 1350",
         items: [
           { title: "Matchday", src: "/projects/csk/Matches Posters/Matchday 2.jpg", width: 1080, height: 1350 },
           { title: "Match Schedule", src: "/projects/csk/Matches Posters/Match schedule 2.jpg", width: 1080, height: 1350 },
-          { title: "Semi-Finals &€” Football 2", src: "/projects/csk/Matches Posters/DEMIFINALSS.jpg", width: 1080, height: 1350 },
-          { title: "Semi-Finals &€” Football 1", src: "/projects/csk/Matches Posters/DEMI-FINALS.jpg", width: 1080, height: 1350 }
+          { title: "Semi-Finals — Football 2", src: "/projects/csk/Matches Posters/DEMIFINALSS.jpg", width: 1080, height: 1350 },
+          { title: "Semi-Finals — Football 1", src: "/projects/csk/Matches Posters/DEMI-FINALS.jpg", width: 1080, height: 1350 }
         ],
       },
       {
@@ -184,13 +184,13 @@ export const projectCaseStudies = [
         title: "Full-time graphics",
         description:
           "A repeatable result system combining decisive typography, match photography, and clear score hierarchy.",
-        format: "1080 Ã— 1350",
+        format: "1080 × 1350",
         items: [
-          { title: "Full-Time &€” 2CG2", src: "/projects/csk/FULLTIME/FT CG2.jpg", width: 1080, height: 1350 },
-          { title: "Full-Time &€” Final", src: "/projects/csk/FULLTIME/fulltime-final.jpg", width: 1080, height: 1350 },
-          { title: "Full-Time &€” 2CG2", src: "/projects/csk/FULLTIME/2CJ2.jpg", width: 1080, height: 1350 },
-          { title: "Full-Time &€” Last Chance", src: "/projects/csk/FULLTIME/LASTCHANCE 1.jpg", width: 1080, height: 1350 },
-          { title: "Full-Time &€” 1CG", src: "/projects/csk/FULLTIME/1CG-LC.jpg", width: 1080, height: 1350 },
+          { title: "Full-Time — 2CG2", src: "/projects/csk/FULLTIME/FT CG2.jpg", width: 1080, height: 1350 },
+          { title: "Full-Time — Final", src: "/projects/csk/FULLTIME/fulltime-final.jpg", width: 1080, height: 1350 },
+          { title: "Full-Time — 2CG2", src: "/projects/csk/FULLTIME/2CJ2.jpg", width: 1080, height: 1350 },
+          { title: "Full-Time — Last Chance", src: "/projects/csk/FULLTIME/LASTCHANCE 1.jpg", width: 1080, height: 1350 },
+          { title: "Full-Time — 1CG", src: "/projects/csk/FULLTIME/1CG-LC.jpg", width: 1080, height: 1350 },
         ],
       },
       {
@@ -199,7 +199,7 @@ export const projectCaseStudies = [
         title: "MVP & player spotlights",
         description:
           "Vertical player-led stories celebrating standout performances, tournament awards, and the personalities behind the results.",
-        format: "1080 Ã— 1920",
+        format: "1080 × 1920",
         items: [
           { title: "Semi-Finals MVPs", src: "/projects/csk/mvps/DEMI FINALS MVPS.jpg", width: 1080, height: 1920 },
           { title: "Final MVP", src: "/projects/csk/mvps/final-mvp.jpg", width: 1080, height: 1920 },
@@ -215,19 +215,19 @@ export const projectCaseStudies = [
         title: "Social media campaigns",
         description:
           "A broader content mix covering club returns, event promotion, team stories, photography, finals, and championship moments.",
-        format: "1080 Ã— 1350",
+        format: "1080 × 1350",
         items: [
           { title: "CSK Is Back In EHTP", src: "/projects/csk/SocialMediaPosters/CS-IS-BACK-EHTP.jpg", width: 1080, height: 1350 },
           { title: "Winners Of Football Tournament", src: "/projects/csk/SocialMediaPosters/winners.jpg", width: 1080, height: 1350 },
-          { title: "Match &€” ESITH", src: "/projects/csk/SocialMediaPosters/match-esiths.jpg", width: 1080, height: 1350 },
-          { title: "Mini Matchday &€” ESITH", src: "/projects/csk/SocialMediaPosters/mini-journee-esiths-.jpg", width: 1080, height: 1350 },
-          { title: "Best Pictures &€” Semi-Final", src: "/projects/csk/SocialMediaPosters/best-pics-demi-final.jpg", width: 1080, height: 1350 },
+          { title: "Match — ESITH", src: "/projects/csk/SocialMediaPosters/match-esiths.jpg", width: 1080, height: 1350 },
+          { title: "Mini Matchday — ESITH", src: "/projects/csk/SocialMediaPosters/mini-journee-esiths-.jpg", width: 1080, height: 1350 },
+          { title: "Best Pictures — Semi-Final", src: "/projects/csk/SocialMediaPosters/best-pics-demi-final.jpg", width: 1080, height: 1350 },
           { title: "ASAFI", src: "/projects/csk/SocialMediaPosters/ASAFI.jpg", width: 1080, height: 1350 },
-          { title: "Integration Day &€” Rise Club Collaboration", src: "/projects/csk/SocialMediaPosters/Integration Day.jpg", width: 1080, height: 1350 },
+          { title: "Integration Day — Rise Club Collaboration", src: "/projects/csk/SocialMediaPosters/Integration Day.jpg", width: 1080, height: 1350 },
           { title: "Starting VI", src: "/projects/csk/SocialMediaPosters/starin-vi.jpg", width: 1080, height: 1350 },
           { title: "Campaign Album", src: "/projects/csk/SocialMediaPosters/ALBUM-(mkamlsh)_01.jpg", width: 1080, height: 1350 },
           { title: "Basketball Final", src: "/projects/csk/SocialMediaPosters/Basket-Final.jpg", width: 1080, height: 1350 },
-          { title: "Matchday &€” EHTP", src: "/projects/csk/SocialMediaPosters/matchday-ehtp.jpg", width: 1080, height: 1350 },
+          { title: "Matchday — EHTP", src: "/projects/csk/SocialMediaPosters/matchday-ehtp.jpg", width: 1080, height: 1350 },
         ],
       },
       {
@@ -236,7 +236,7 @@ export const projectCaseStudies = [
         title: "Player awards",
         description:
           "A closing awards series celebrating the standout individual performances from the tournament.",
-        format: "1080 Ã— 1350",
+        format: "1080 × 1350",
         items: [
           { title: "Best Player", src: "/projects/csk/playerssssawards/bestplayeer.jpg", width: 1080, height: 1350 },
           { title: "Top Goalscorer", src: "/projects/csk/playerssssawards/goalscorer.jpg", width: 1080, height: 1350 },
@@ -253,7 +253,7 @@ export const bookifyCaseStudy = {
   shortName: "Bookify",
   logo: "/projects/Bookify/Logo wout bg.png",
   title: "Bookify",
-  year: "2025&€“2026",
+  year: "2025–2026",
   client: "Independent final project",
   role: "UI/UX Designer & Frontend Developer",
   category: "Product Design & UI/UX",
@@ -295,7 +295,7 @@ export const bookifyCaseStudy = {
       screens: [
         {
           title: "Landing experience",
-          label: "Public website &· Full page",
+          label: "Public website · Full page",
           src: "/projects/Bookify/Public/landing page.png",
           width: 1905,
           height: 5200,
@@ -306,7 +306,7 @@ export const bookifyCaseStudy = {
         },
         {
           title: "Discovery home",
-          label: "Categories & featured providers &· Full page",
+          label: "Categories & featured providers · Full page",
           src: "/projects/Bookify/Client/Client Home.png",
           width: 1905,
           height: 2439,
@@ -364,7 +364,7 @@ export const bookifyCaseStudy = {
         },
         {
           title: "Appointment requests",
-          label: "Accept &· Reschedule &· Decline",
+          label: "Accept · Reschedule · Decline",
           src: "/projects/Bookify/provider/Provider Appointment request.png",
           width: 1905,
           height: 1601,
@@ -447,14 +447,14 @@ export const riseClubCaseStudy = {
   shortName: "Rise Club",
   logo: "/projects/riseclub/logo without background.png.png",
   title: "Rise Club",
-  year: "2025&€“2026",
+  year: "2025–2026",
   client: "Independent Club",
   role: "Graphic Designer",
   category: "Branding & Visual Content",
   introduction:
     "A bold identity and content system for an independent club built to celebrate talent, creativity, personal growth, and collective energy.",
   contribution:
-    "I created the logo and shaped the club&€™s visual direction across launch posters, social media campaigns, event communication, badges, and large-format applications.",
+    "I created the logo and shaped the club's visual direction across launch posters, social media campaigns, event communication, badges, and large-format applications.",
   services: ["Logo Design", "Visual Direction", "Poster Design", "Social Media Design", "Event Collateral"],
   palette: [
     { name: "Rise Blue", value: "#010080" },
@@ -467,13 +467,13 @@ export const riseClubCaseStudy = {
       eyebrow: "Launch campaign",
       title: "A visual entrance with confidence.",
       description:
-        "The opening posters establish the club&€™s voice through assertive typography, cinematic composition, and a clear message of momentum.",
+        "The opening posters establish the club's voice through assertive typography, cinematic composition, and a clear message of momentum.",
       contextLabel: "Campaign purpose",
       contextTitle: "Announcing the club before revealing the full story.",
       context:
-        "These posters introduced Rise Club and built anticipation around its arrival. The first visual created curiosity, while the second turned that attention into a clear coming-soon announcement for the club&€™s launch.",
+        "These posters introduced Rise Club and built anticipation around its arrival. The first visual created curiosity, while the second turned that attention into a clear coming-soon announcement for the club's launch.",
       items: [
-        { title: "Don&€™t Blink", src: "/projects/riseclub/Posters/AFFICHE 1.jpg", width: 3508, height: 4961 },
+        { title: "Don't Blink", src: "/projects/riseclub/Posters/AFFICHE 1.jpg", width: 3508, height: 4961 },
         { title: "Coming Soon", src: "/projects/riseclub/Posters/Coming soon 1.jpg", width: 1000, height: 1000 },
       ],
     },
@@ -484,7 +484,7 @@ export const riseClubCaseStudy = {
       description:
         "A flexible content approach that can move from club-led activities to seasonal moments and shared events without losing the Rise Club signature.",
       items: [
-        { title: "Integration Day &€” CSK Collaboration", src: "/projects/riseclub/Social Media/Integration Day.jpg", width: 1080, height: 1350 },
+        { title: "Integration Day — CSK Collaboration", src: "/projects/riseclub/Social Media/Integration Day.jpg", width: 1080, height: 1350 },
         { title: "Cinema Day", src: "/projects/riseclub/Social Media/Cinema post.jpg", width: 1080, height: 1350 },
         { title: "Ramadan Initiative", src: "/projects/riseclub/Social Media/ramdan.jpg", width: 1080, height: 1350 },
       ],
@@ -501,8 +501,8 @@ export const riseClubCaseStudy = {
         "Members wore the branded badges during activities, while the roll-up travelled with the team to external events and appearances. Together, they gave Rise Club a clear and consistent presence wherever the community showed up.",
       items: [
         { title: "Event Roll-up", src: "/projects/riseclub/Roll up/Roulatte.jpg", width: 6375, height: 15000 },
-        { title: "Member Badge &€” Front", src: "/projects/riseclub/Badgee/Badge d ahsen Designer 7.jpg", width: 1754, height: 2480 },
-        { title: "Member Badge &€” Back", src: "/projects/riseclub/Badgee/Badge Back.jpg", width: 1754, height: 2480 },
+        { title: "Member Badge — Front", src: "/projects/riseclub/Badgee/Badge d ahsen Designer 7.jpg", width: 1754, height: 2480 },
+        { title: "Member Badge — Back", src: "/projects/riseclub/Badgee/Badge Back.jpg", width: 1754, height: 2480 },
       ],
     },
   ],
@@ -524,7 +524,7 @@ export const sparkCaseStudy = {
   },
   monochromeLogo: "/projects/SPARK/SPARK-LOGO.jpg",
   guidelines: "/projects/SPARK/SPARK-guidlines.jpg",
-  year: "2026&€“Now",
+  year: "2026–Present",
   client: "SPARK Agency",
   role: "Graphic Designer",
   category: "Brand Identity & Visual Direction",
@@ -544,7 +544,7 @@ export const sparkCaseStudy = {
     {
       id: "guidelines",
       title: "Brand guidelines",
-      label: "Identity system &· Full board",
+      label: "Identity system · Full board",
       src: "/projects/SPARK/SPARK-guidlines.jpg",
       width: 1920,
       height: 4000,
@@ -659,7 +659,7 @@ export const skiroCaseStudy = {
   introduction:
     "A high-impact fashion identity expressed through a bold logo and a six-frame social carousel built to move as one continuous visual story.",
   contribution:
-    "I designed the SKIRO logo and developed the carousel&€™s visual direction, combining editorial photography, oversized typography, and a repeated red graphic system across every frame.",
+    "I designed the SKIRO logo and developed the carousel's visual direction, combining editorial photography, oversized typography, and a repeated red graphic system across every frame.",
   services: ["Logo Design", "Carousel Design", "Art Direction", "Social Media Design"],
   palette: [
     { name: "Signal Red", value: "#EF0500" },
